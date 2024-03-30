@@ -69,17 +69,14 @@ model.add(Dense(128,activation='relu'))
 model.add(Dense(128,activation='relu'))
 model.add(Dense(128,activation='relu'))
 model.add(Dense(128,activation='relu'))
-model.add(Dense(117,activation='sigmoid'))
+model.add(Dense(1))
 
 
 from keras.losses import SparseCategoricalCrossentropy 
-model.compile(loss= SparseCategoricalCrossentropy(from_logits=False))
+model.compile(loss= 'mse')
 
 model.fit(x_train,y_train,epochs=7)
-x_test = np.array([[108,105,0.21,95,0]])
-y = model(x_test)
-print(np.argmax(y))
-#print(x_train.shape)
+
 
 
 
